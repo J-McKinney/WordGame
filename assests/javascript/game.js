@@ -1,6 +1,6 @@
-var secretWords = ["ketel", "goose", "ciroc", "belvedere", "reyka", "chopin", "smirnoff", "absolut", "hanger",
-"stolichnaya", "skyy", "pinnacle", "titos", "dixie", "svedka", "tovaritch", "wheatley", "chase", "wyborowa",
-"valt", "kirkland", "deepeddy", "midwest", "wave", "silver", "selfish", "woltzs"];
+var secretWords = ["KETEL", "GOOSE", "CIROC", "BELVEDERE", "REYKA", "CHOPIN", "SMIRNOFF", "ABSOLUT", "HANGER",
+"STOLICHNAYA", "SKYY", "PINNACLE", "TITOS", "DIXIE", "SVEDKA", "TOVARITCH", "WHEATLEY", "CHASE", "WYBOROWA",
+"VALT", "KIRKLAND", "DEEPEDDY", "MIDWEST", "WAVE", "SILVER", "SELFISH", "WOLTZSL"];
 
 const triesLeft = 13;     //max # of tries a player has
 
@@ -52,7 +52,7 @@ document.onkeydown = function (event) {
         endGame = false;
     } else {
         if (event.keyCode >= 65 && event.keyCode <= 90) {
-            userGuess(event.key.toLowerCase());
+            userGuess(event.key.toUpperCase());
         }
     }
 };
