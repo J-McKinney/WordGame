@@ -32,6 +32,9 @@ document.getElementById("winner-pic").style.cssText = "display: none";
 displayScore();
 };
 
+//images pop up to let you know if you've won or lost
+//and if you want to try again
+
 function displayScore() {
     document.getElementById("wins").innerText = wins;
     document.getElementById("matchWord").innerText = "";
