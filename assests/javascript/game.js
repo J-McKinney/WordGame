@@ -46,6 +46,7 @@ function displayScore() {
     if (guessesLeft <= 0) {
         document.getElementById("gameover-pic").style.cssText = "display: block";
         document.getElementById("tryAgain").style.cssText = "display: block";
+        document.getElementById("hint").style.cssText = "display: none";
         endGame = true;
     }
 };
@@ -95,6 +96,7 @@ function winnersFlag() {
     if (buildingWord.indexOf("_") === -1) {
         document.getElementById("winner-pic").style.cssText = "display: block";
         document.getElementById("tryAgain").style.cssText = "display: block";
+        document.getElementById("hint").style.cssText = "display: none";
         wins++;
         endGame = true;
     }

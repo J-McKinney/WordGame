@@ -15,12 +15,17 @@ body {
     background-size: 100% 100%;
     overflow: auto;
     clear: both;
+    z-index: 1;
 }
 
-#WLR {
-    overflow: auto;
-    clear: both;
-    object-fit: cover;
+.winner-pic,
+.gameover-pic,
+.tryAgain {
+    position: relative;
+}
+
+.hint {
+    position: absolute;
 }
 
 
