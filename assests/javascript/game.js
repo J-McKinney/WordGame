@@ -54,6 +54,7 @@ document.onkeydown = function (event) {
     if (endGame) {
         nextGame();
         endGame = false;
+        document.getElementById("hint").style.cssText = "display: block";
     } else {
         if (event.keyCode >= 65 && event.keyCode <= 90) {
             userGuess(event.key.toUpperCase());
