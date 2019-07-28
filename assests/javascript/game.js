@@ -1,6 +1,9 @@
-var secretWords = ["KETEL", "GOOSE", "CIROC", "BELVEDERE", "REYKA", "CHOPIN", "SMIRNOFF", "ABSOLUT", "HANGER",
-"STOLICHNAYA", "SKYY", "PINNACLE", "TITOS", "DIXIE", "SVEDKA", "TOVARITCH", "WHEATLEY", "CHASE", "WYBOROWA",
-"VALT", "KIRKLAND", "DEEPEDDY", "MIDWEST", "WAVE", "SILVER", "SELFISH", "WOLTZSL"];
+var secretWords = [
+    "KETEL",
+     "GOOSE", "CIROC", "BELVEDERE", "REYKA", "CHOPIN", "SMIRNOFF", "ABSOLUT", "HANGER",
+    "STOLICHNAYA", "SKYY", "PINNACLE", "TITOS", "DIXIE", "SVEDKA", "TOVARITCH", "WHEATLEY", "CHASE", "WYBOROWA",
+    "VALT", "KIRKLAND", "DEEPEDDY", "MIDWEST", "WAVE", "SILVER", "SELFISH", "WOLTZSL"
+];
 
 const triesLeft = 13;     //max # of tries a player has
 
@@ -11,30 +14,31 @@ var guessesLeft = 0;     //tries left to guess
 var startUp = false;     //game has started
 var endGame = false;     //game is over
 var wins = 0;     //total of wins
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function nextGame() {
     guessesLeft = triesLeft;
     startUp = false;
-//start of a new game
-indexedWord = Math.floor(Math.random() * (secretWords.length));
-lettersGuessed = [];
-buildingWord = [];
-console.log(lettersGuessed);
-//the computer picks a new word to use from secretWords array
-//and displays a win or lose picture and the scoreboard
-for (var i = 0; i < secretWords[indexedWord].length; i++) {
-    buildingWord.push("_");
-}
-document.getElementById("tryAgain").style.cssText = "display: none";
-document.getElementById("gameover-pic").style.cssText = "display: none";
-document.getElementById("winner-pic").style.cssText = "display: none";
+    //start of a new game
+    indexedWord = Math.floor(Math.random() * (secretWords.length));
+    lettersGuessed = [];
+    buildingWord = [];
+    console.log(indexedWord);
+    console.log(lettersGuessed);
+    //the computer picks a new word to use from secretWords array
+    //and displays a win or lose picture and the scoreboard
+    for (var i = 0; i < secretWords[indexedWord].length; i++) {
+        buildingWord.push("_");
+    }
+    document.getElementById("tryAgain").style.cssText = "display: none";
+    document.getElementById("gameover-pic").style.cssText = "display: none";
+    document.getElementById("winner-pic").style.cssText = "display: none";
 
-displayScore();
+    displayScore();
 };
 
 //images pop up to let you know if you've won or lost
 //and if you want to try again
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 function displayScore() {
     document.getElementById("wins").innerText = wins;
     document.getElementById("matchWord").innerText = "";
@@ -50,6 +54,7 @@ function displayScore() {
         endGame = true;
     }
 };
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 document.onkeydown = function (event) {
     if (endGame) {
         nextGame();
@@ -64,6 +69,7 @@ document.onkeydown = function (event) {
 //if it's the end of the game, then the computer will reset
 //when the user hits any key
 //event.keycode---> THANK YOU CSS TRICKS!!!
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 function userGuess(letter) {
     if (guessesLeft > 0) {
         if (!startUp) {
@@ -78,6 +84,7 @@ function userGuess(letter) {
     winnersFlag();
 };
 //scoreboard check and make sure we use a key only once
+////////////////////////////////////////////////////////////////////////////////////////////
 function check(letter) {
     var letterPos = [];
     for (var i = 0; i < secretWords[indexedWord].length; i++) {
@@ -93,6 +100,7 @@ function check(letter) {
         }
     }
 };
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 function winnersFlag() {
     if (buildingWord.indexOf("_") === -1) {
         document.getElementById("winner-pic").style.cssText = "display: block";
